@@ -1,0 +1,109 @@
+:root {
+    --gold: #c5a059;
+    --light-pink: #fdf5f6;
+    --dark-gold: #947438;
+}
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+/* Contenedor Principal */
+.card {
+    background-color: white;
+    width: 400px;
+    height: 700px;
+    border: 2px solid var(--gold);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+/* Marco Interno */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+}
+/* Decoración Superior (Placeholder de Flores) */
+.decor-top {
+    width: 100%;
+    height: 120px;
+    background: radial-gradient(circle, #fff5e6 0%, transparent 70%);
+    margin-bottom: 20px;
+    position: relative;
+}
+.crown {
+    color: var(--gold);
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+/* Tipografía */
+.xv-text {
+    font-family: 'Cinzel', serif;
+    color: var(--dark-gold);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    margin: 0;
+}
+.xv-text span {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+.name {
+    font-family: 'Great Vibes', cursive;
+    color: var(--gold);
+    font-size: 5rem;
+    margin: 10px 0;
+    line-height: 1;
+}
+/* Ilustración Central (Simulada) */
+.main-illustration {
+    width: 80%;
+    height: 250px;
+    margin-top: 20px;
+    background: linear-gradient(to bottom, transparent, var(--light-pink));
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    /* Aquí iría la imagen de la chica */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.main-illustration::after {
+    content: '🌸';
+    font-size: 100px;
+    opacity: 0.3;
+}
+/* Decoración Inferior */
+.decor-bottom {
+    position: absolute;
+    bottom: -20px;
+    width: 110%;
+    height: 100px;
+    background: var(--light-pink);
+    filter: blur(20px);
+    z-index: 0;
+}
+.footer-flowers {
+    position: absolute;
+    bottom: 10px;
+    color: var(--dark-gold);
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    z-index: 1;
+}
