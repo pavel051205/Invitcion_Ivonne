@@ -1,109 +1,279 @@
-:root {
-    --gold: #c5a059;
-    --light-pink: #fdf5f6;
-    --dark-gold: #947438;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-body {
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+
+body{
+background:#f8f4f1;
+font-family:'Cormorant Garamond', serif;
+display:flex;
+justify-content:center;
+padding:20px;
+color:#a6762c;
 }
-/* Contenedor Principal */
-.card {
-    background-color: white;
-    width: 400px;
-    height: 700px;
-    border: 2px solid var(--gold);
-    position: relative;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    box-sizing: border-box;
+
+.invitation{
+width:100%;
+max-width:430px;
+background:linear-gradient(to bottom,#fffdfc,#fdf7f3);
+border:2px solid #d8b06d;
+border-radius:30px;
+overflow:hidden;
+position:relative;
+box-shadow:0 10px 40px rgba(0,0,0,.1);
 }
-/* Marco Interno */
-.card::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 1px solid var(--gold);
-    pointer-events: none;
+
+.gold-border{
+position:absolute;
+inset:10px;
+border:1px solid rgba(212,175,55,.5);
+border-radius:25px;
+pointer-events:none;
 }
-/* Decoración Superior (Placeholder de Flores) */
-.decor-top {
-    width: 100%;
-    height: 120px;
-    background: radial-gradient(circle, #fff5e6 0%, transparent 70%);
-    margin-bottom: 20px;
-    position: relative;
+
+.hero{
+position:relative;
+padding:30px 20px 10px;
+text-align:center;
 }
-.crown {
-    color: var(--gold);
-    font-size: 40px;
-    margin-bottom: 10px;
+
+.flowers-top{
+width:100%;
+border-radius:20px;
+margin-bottom:10px;
 }
-/* Tipografía */
-.xv-text {
-    font-family: 'Cinzel', serif;
-    color: var(--dark-gold);
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    margin: 0;
+
+.crown{
+font-size:55px;
+margin-bottom:5px;
 }
-.xv-text span {
-    font-size: 2.2rem;
-    font-weight: bold;
+
+.title-small{
+font-size:38px;
+font-weight:600;
+letter-spacing:1px;
 }
-.name {
-    font-family: 'Great Vibes', cursive;
-    color: var(--gold);
-    font-size: 5rem;
-    margin: 10px 0;
-    line-height: 1;
+
+.name{
+font-family:'Great Vibes', cursive;
+font-size:95px;
+line-height:1;
+margin-top:5px;
+color:#b27b2c;
 }
-/* Ilustración Central (Simulada) */
-.main-illustration {
-    width: 80%;
-    height: 250px;
-    margin-top: 20px;
-    background: linear-gradient(to bottom, transparent, var(--light-pink));
-    border-radius: 50% 50% 0 0;
-    position: relative;
-    /* Aquí iría la imagen de la chica */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+
+.girl{
+width:85%;
+margin-top:10px;
 }
-.main-illustration::after {
-    content: '🌸';
-    font-size: 100px;
-    opacity: 0.3;
+
+.message{
+text-align:center;
+font-size:30px;
+padding:15px 35px;
+color:#a37b4a;
 }
-/* Decoración Inferior */
-.decor-bottom {
-    position: absolute;
-    bottom: -20px;
-    width: 110%;
-    height: 100px;
-    background: var(--light-pink);
-    filter: blur(20px);
-    z-index: 0;
+
+.count-title{
+text-align:center;
+font-size:40px;
+letter-spacing:4px;
+margin-top:10px;
 }
-.footer-flowers {
-    position: absolute;
-    bottom: 10px;
-    color: var(--dark-gold);
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    z-index: 1;
+
+.countdown{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+padding:20px;
+}
+
+.count-box{
+background:white;
+border:1px solid #e7c58d;
+border-radius:18px;
+padding:12px 5px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+.count-number{
+font-size:42px;
+font-weight:600;
+}
+
+.count-label{
+font-size:20px;
+letter-spacing:1px;
+}
+
+.info-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:0 20px 20px;
+}
+
+.card{
+background:rgba(255,255,255,.8);
+border:1px solid #ecd2a2;
+border-radius:20px;
+padding:18px;
+text-align:center;
+backdrop-filter:blur(10px);
+}
+
+.icon{
+font-size:38px;
+margin-bottom:8px;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:5px;
+}
+
+.card p{
+font-size:22px;
+color:#8f7146;
+}
+
+.map-section,
+.dress-section,
+.rsvp-section,
+.playlist-section{
+margin:0 20px 20px;
+border:1px solid #ecd2a2;
+border-radius:22px;
+background:white;
+overflow:hidden;
+}
+
+.map-content{
+padding:18px;
+}
+
+.section-title{
+font-size:34px;
+margin-bottom:10px;
+}
+
+iframe{
+width:100%;
+height:220px;
+border:none;
+border-radius:18px;
+}
+
+.dress-content{
+padding:18px;
+}
+
+.dress-images{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.dress-images img{
+width:100%;
+border-radius:18px;
+object-fit:cover;
+height:120px;
+}
+
+.colors{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.color{
+width:30px;
+height:30px;
+border-radius:50%;
+border:2px solid white;
+box-shadow:0 0 5px rgba(0,0,0,.1);
+}
+
+.rsvp-section{
+padding:25px;
+text-align:center;
+background:linear-gradient(to right,#fff3f4,#fde6e9);
+}
+
+.rsvp-title{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.btn{
+display:inline-block;
+background:linear-gradient(to right,#dba0aa,#f0b7bf);
+color:white;
+text-decoration:none;
+padding:15px 30px;
+border-radius:50px;
+font-size:22px;
+transition:.3s;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.playlist-section{
+padding:25px;
+text-align:center;
+margin-bottom:30px;
+}
+
+.playlist-title{
+font-size:38px;
+margin-bottom:10px;
+}
+
+.music-btn{
+margin-top:10px;
+}
+
+.footer-flowers{
+width:100%;
+margin-top:20px;
+}
+
+@media(max-width:480px){
+    .name{
+        font-size:75px;
+    }
+
+    .title-small{
+        font-size:30px;
+    }
+
+    .count-number{
+        font-size:32px;
+    }
+
+    .count-label{
+        font-size:16px;
+    }
+
+    .card h3{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:18px;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+
+    .btn{
+        width:100%;
+    }
 }

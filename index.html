@@ -1,35 +1,206 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
     <html lang="es">
         <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Invitación Alika - XV Años</title>
-            <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>XV Años Alika</title>
+
+            <!-- React -->
+            <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+            <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+            <!-- Babel -->
+            <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+            <!-- Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
             <link rel="stylesheet" href="styles.css">
         </head>
 
         <body>
+            <div id="root">
+                <script type="text/babel">
+                    function App(){
+                    const targetDate = new Date("2026-08-24T18:00:00");
+                    const [timeLeft, setTimeLeft] = React.useState(getTimeLeft());
+                    
+                    function getTimeLeft(){
+                        const now = new Date();
+                        const difference = targetDate - now;
+                        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                        const minutes = Math.floor((difference / 1000 / 60) % 60);
+                        const seconds = Math.floor((difference / 1000) % 60);
+                        return { days, hours, minutes, seconds };
+                    }
 
-            <div class="card">
-                <div class="decor-top">
-                    <div style="font-size: 40px;">🌿🌸🌿</div>
-                </div>
+                    React.useEffect(() => {
+                        const timer = setInterval(() => {
+                        setTimeLeft(getTimeLeft());
+                        },1000);
+                        return () => clearInterval(timer);
+                    },[]);
 
-                <div class="crown">👑</div>
-                
-                <p class="xv-text">— Mis <span>XV</span> años —</p>
-                
-                <h1 class="name">Alika</h1>
+                    return(
+                        <div className="invitation">
+                            <div className="gold-border"></div>
+                            <section className="hero">
 
-                <div class="main-illustration">
-                    </div>
+                                <img
+                                    className="flowers-top"
+                                    wsrc="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=1200&auto=format&fit=crop"
+                                />
 
-                <div class="footer-flowers">
-                    M E X I C O &nbsp; 2 0 2 4
-                </div>
-                
-                <div class="decor-bottom"></div>
-            </div>
+                                <div className="crown">👑</div>
 
+                                <div className="title-small">
+                                    
+                                </div>
+
+                                <div className="name">
+                                    Alika
+                                </div>
+
+                                <img
+                                    className="girl"
+                                    src="https://pngimg.com/d/girl_PNG6496.png"
+                                />
+
+                            </section>
+
+                            <div className="message">
+                                Te invito a celebrar este día tan especial para mí ✨
+                            </div>
+
+                            <div className="count-title">
+                                FALTAN
+                            </div>
+
+                            <section className="countdown">
+                                <div className="count-box">
+                                    <div className="count-number">{timeLeft.days}</div>
+                                    <div className="count-label">DÍAS</div>
+                                </div>
+
+                                <div className="count-box">
+                                    <div className="count-number">{timeLeft.hours}</div>
+                                    <div className="count-label">HORAS</div>
+                                </div>
+
+                                <div className="count-box">
+                                    <div className="count-number">{timeLeft.minutes}</div>
+                                    <div className="count-label">MIN</div>
+                                </div>
+
+                                <div className="count-box">
+                                    <div className="count-number">{timeLeft.seconds}</div>
+                                    <div className="count-label">SEG</div>
+                                </div>
+                            </section>
+
+                            <section className="info-grid">
+                                <div className="card">
+                                    <div className="icon">📅</div>
+                                    <h3>Fecha</h3>
+                                    <p>24 Agosto 2026</p>
+                                </div>
+
+                                <div className="card">
+                                    <div className="icon">⏰</div>
+                                    <h3>Hora</h3>
+                                    <p>06:00 PM</p>
+                                </div>
+
+                                <div className="card">
+                                    <div className="icon">⛪</div>
+                                    <h3>Ceremonia</h3>
+                                    <p>Parroquia San José</p>
+                                </div>
+
+                                <div className="card">
+                                    <div className="icon">🎉</div>
+                                    <h3>Recepción</h3>
+                                    <p>Salón Torreón</p>
+                                </div>
+                            </section>
+
+                            <section className="map-section">
+                                <div className="map-content">
+                                    <div className="section-title">
+                                        📍 Ubicación
+                                    </div>
+
+                                    <iframe
+                                        src="https://maps.google.com/maps?q=guadalajara&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    ></iframe>
+                                </div>
+                            </section>
+
+                            <section className="dress-section">
+
+                                <div className="dress-content">
+                                    <div className="section-title">
+                                        👗 Dress Code
+                                    </div>
+
+                                    <p style={{fontSize:'24px'}}>
+                                        Formal elegante
+                                    </p>
+
+                                    <div className="colors">
+                                        <div className="color" style={{background:'#f3d5d8'}}></div>
+                                        <div className="color" style={{background:'#f5ead7'}}></div>
+                                        <div className="color" style={{background:'#d4af37'}}></div>
+                                    </div>
+
+                                    <div className="dress-images">
+                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" />
+                                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop" />
+                                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" />
+
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section className="rsvp-section">
+
+                                <div className="rsvp-title">
+                                💌 Confirma tu asistencia
+                                </div>
+
+                                <a
+                                className="btn"
+                                href="https://wa.me/5210000000000"
+                                target="_blank"
+                                >
+                                Confirmar por WhatsApp
+                                </a>
+
+                            </section>
+
+                            <section className="playlist-section">
+
+                                <div className="playlist-title">
+                                🎵 Playlist
+                                </div>
+
+                                <p style={{fontSize:'24px'}}>
+                                ¡Ayúdame a hacer la mejor fiesta!
+                                </p>
+
+                                <a
+                                className="btn music-btn"
+                                href="#"
+                                >
+                                Escuchar Playlist
+                                </a>
+                            </section>
+                        </div>
+                    );
+                }
+                ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+            </script>
         </body>
     </html>
