@@ -65,11 +65,10 @@
 
                                 <img
                                     className="girl"
-                                    src="https://pngimg.com/d/girl_PNG6496.png"
+                                    src="foto.png"
                                 />
-
                             </section>
-
+                            
                             <div className="message">
                                 Te invito a celebrar este día tan especial para mí ✨
                             </div>
@@ -116,13 +115,13 @@
                                 <div className="card">
                                     <div className="icon">⛪</div>
                                     <h3>Ceremonia</h3>
-                                    <p>Parroquia San José</p>
+                                    <p>Dentro del mismo salon</p>
                                 </div>
 
                                 <div className="card">
                                     <div className="icon">🎉</div>
                                     <h3>Recepción</h3>
-                                    <p>Salón Torreón</p>
+                                    <p>Salón Mesteño</p>
                                 </div>
                             </section>
 
@@ -132,8 +131,8 @@
                                         📍 Ubicación
                                     </div>
 
-                                    <iframe
-                                        src="https://maps.google.com/maps?q=guadalajara&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                    <iframe 
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.038646754392!2d-99.1908527!3d19.539954299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21d002bcafc2b%3A0x85a6e6b47df5610d!2zU2Fsw7NuIE1lc3Rlw7Fv!5e0!3m2!1ses-419!2smx!4v1779512885945!5m2!1ses-419!2smx"
                                     ></iframe>
                                 </div>
                             </section>
@@ -142,7 +141,7 @@
 
                                 <div className="dress-content">
                                     <div className="section-title">
-                                        👗 Dress Code
+                                        👗 Codigo de vestimenta
                                     </div>
 
                                     <p style={{fontSize:'24px'}}>
@@ -154,13 +153,6 @@
                                         <div className="color" style={{background:'#f5ead7'}}></div>
                                         <div className="color" style={{background:'#d4af37'}}></div>
                                     </div>
-
-                                    <div className="dress-images">
-                                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop" />
-                                        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=800&auto=format&fit=crop" />
-                                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" />
-
-                                    </div>
                                 </div>
                             </section>
 
@@ -171,11 +163,13 @@
                                 </div>
 
                                 <a
-                                className="btn"
-                                href="https://wa.me/5210000000000"
-                                target="_blank"
+                                    className="btn"
+                                    href={`https://wa.me/5215541137580?text=${encodeURIComponent(
+                                        "Quiero confirmar mi asistencia al evento.\n\nNombre:\nCantidad de invitados:"
+                                    )}`}
+                                    target="_blank"
                                 >
-                                Confirmar por WhatsApp
+                                    Confirmar por WhatsApp
                                 </a>
 
                             </section>
@@ -183,18 +177,20 @@
                             <section className="playlist-section">
 
                                 <div className="playlist-title">
-                                🎵 Playlist
+                                    📷 Galeria de fotos/videos
                                 </div>
 
                                 <p style={{fontSize:'24px'}}>
-                                ¡Ayúdame a hacer la mejor fiesta!
+                                    ¡Agrega tus mejores momentos!
                                 </p>
 
                                 <a
-                                className="btn music-btn"
-                                href="#"
+                                    className="btn music-btn"
+                                    href="https://driveuploader.com/upload/dYtjt7pw4h/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                Escuchar Playlist
+                                    Agregar a la galeria
                                 </a>
                             </section>
                         </div>
