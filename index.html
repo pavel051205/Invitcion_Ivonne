@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="es">
         <head>
             <meta charset="UTF-8" />
@@ -196,6 +196,28 @@
                 }
                 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
             </script>            
-            <script src="script.js"></script>
+            <script>
+                // 1. Declaras tu "Base de Datos" primero
+                const TABLA_INVITADOS = [
+                    { id: "valencia4", nombre: "Familia Valencia Aguilar", pases: 4 },
+                    { id: "sanchez2",  nombre: "Carlos Sánchez y Acompañante", pases: 2 },
+                    { id: "alika15",   nombre: "Amigos", pases: 1 },
+                    { id: "madrina",   nombre: "Madrina Elena", pases: 3 }
+                ];
+
+                // 2. Tu componente lee la tabla sin problemas
+                function App(){
+                    const targetDate = new Date("2026-12-05T18:00:00");
+                    const [timeLeft, setTimeLeft] = React.useState(getTimeLeft());
+
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const codigoUrl = urlParams.get('id'); 
+
+                    const datosInvitado = TABLA_INVITADOS.find(invitado => invitado.id === codigoUrl) || { 
+                        nombre: "Invitado Especial", 
+                        pases: 1 
+                    };
+                    
+            </script>
         </body>
     </html>
