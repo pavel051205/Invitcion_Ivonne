@@ -1,196 +1,297 @@
 <!DOCTYPE html>
-    <html lang="es">
-        <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>XV Años Alika</title>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>XV Años Alika</title>
 
-            <!-- React -->
-            <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-            <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-            <!-- Babel -->
-            <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
 
-            <!-- Fonts -->
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <body>
+        <main class="invitation">
+            <div class="ambient-layer" aria-hidden="true">
+                <span class="mist mist-one"></span>
+                <span class="mist mist-two"></span>
+                <span class="star star-one"></span>
+                <span class="star star-two"></span>
+                <span class="star star-three"></span>
+                <span class="star star-four"></span>
+            </div>
 
-            <link rel="stylesheet" href="styles.css">
-        </head>
+            <span class="shine shine-one"></span>
+            <span class="shine shine-two"></span>
+            <span class="shine shine-three"></span>
+            <div class="gold-border"></div>
 
-        <body>
-            <div id="root">
-                <script type="text/babel">
-                    function App(){
-                    const targetDate = new Date("2026-12-05T18:00:00");
-                    const [timeLeft, setTimeLeft] = React.useState(getTimeLeft());
-                    
-                    function getTimeLeft(){
-                        const now = new Date();
-                        const difference = targetDate - now;
-                        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                        const minutes = Math.floor((difference / 1000 / 60) % 60);
-                        const seconds = Math.floor((difference / 1000) % 60);
-                        return { days, hours, minutes, seconds };
+            <section class="hero">
+                <div class="castle-scene" aria-hidden="true">
+                    <span class="castle castle-left"></span>
+                    <span class="castle castle-center"></span>
+                    <span class="castle castle-right"></span>
+                    <span class="castle-gate"></span>
+                    <span class="castle-path"></span>
+                    <span class="light light-one"></span>
+                    <span class="light light-two"></span>
+                    <span class="light light-three"></span>
+                    <span class="light light-four"></span>
+                </div>
+
+                <span class="hero-corner corner-left"></span>
+                <span class="hero-corner corner-right"></span>
+
+                <p class="eyebrow">Mis XV años</p>
+
+                <div class="crown-wrap">
+                    <img class="crown" src="crown .png" alt="Corona dorada">
+                </div>
+
+                <div class="title-block">
+                    <span class="ornament-line"></span>
+                    <p class="title-small">Celebrando a</p>
+                    <h1 class="name">Alika</h1>
+                    <p class="subtitle">Quinceañera</p>
+                    <span class="ornament-line"></span>
+                </div>
+
+                <p class="hero-date">05 . Diciembre . 2026</p>
+
+                <div class="portrait-frame">
+                    <span class="photo-spark spark-one"></span>
+                    <span class="photo-spark spark-two"></span>
+                    <span class="photo-spark spark-three"></span>
+                    <img class="girl" src="Foto.png" alt="Foto de Alika">
+                </div>
+            </section>
+
+            <section class="message-section">
+                <p class="message">
+                    Con mucha ilusión quiero invitarte a celebrar conmigo una noche única, llena de alegría, recuerdos y momentos especiales.
+                </p>
+            </section>
+
+            <section class="countdown-section">
+                <p class="count-title">Faltan</p>
+
+                <div class="countdown" aria-label="Cuenta regresiva para el evento">
+                    <div class="count-box">
+                        <span class="count-number" id="days">000</span>
+                        <span class="count-label">Días</span>
+                    </div>
+
+                    <div class="count-box">
+                        <span class="count-number" id="hours">00</span>
+                        <span class="count-label">Horas</span>
+                    </div>
+
+                    <div class="count-box">
+                        <span class="count-number" id="minutes">00</span>
+                        <span class="count-label">Min</span>
+                    </div>
+
+                    <div class="count-box">
+                        <span class="count-number" id="seconds">00</span>
+                        <span class="count-label">Seg</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="info-grid" aria-label="Información del evento">
+                <article class="card">
+                    <div class="icon">📅</div>
+                    <h2>Fecha</h2>
+                    <p>05 Diciembre 2026</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">⏰</div>
+                    <h2>Hora</h2>
+                    <p>06:00 PM</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">⛪</div>
+                    <h2>Ceremonia</h2>
+                    <p>Dentro del mismo salón</p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">🎉</div>
+                    <h2>Recepción</h2>
+                    <p>Salón Mesteño</p>
+                </article>
+            </section>
+
+            <section class="map-section panel">
+                <div class="panel-content">
+                    <h2 class="section-title">Ubicación</h2>
+                    <p class="section-copy">Salón Mesteño</p>
+
+                    <iframe
+                        title="Mapa de Salón Mesteño"
+                        loading="lazy"
+                        allowfullscreen
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.038646754392!2d-99.1908527!3d19.539954299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21d002bcafc2b%3A0x85a6e6b47df5610d!2zU2Fsw7NuIE1lc3Rlw7Fv!5e0!3m2!1ses-419!2smx!4v1779512885945!5m2!1ses-419!2smx"
+                    ></iframe>
+                </div>
+            </section>
+
+            <section class="dress-section panel">
+                <div class="panel-content">
+                    <h2 class="section-title">Código de vestimenta</h2>
+                    <p class="section-copy">Formal elegante</p>
+
+                    <div class="color-row" aria-label="Paleta sugerida">
+                        <span class="color blush"></span>
+                        <span class="color champagne"></span>
+                        <span class="color gold"></span>
+                        <span class="color pearl"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rsvp-section panel">
+                <div class="panel-content center">
+                    <h2 class="rsvp-title">Confirma tu asistencia</h2>
+                    <p class="section-copy">Tu presencia hará esta noche aún más especial.</p>
+
+                    <a
+                        class="btn"
+                        href="https://wa.me/5215541137580?text=Quiero%20confirmar%20mi%20asistencia%20al%20evento.%0A%0ANombre%3A%0ACantidad%20de%20invitados%3A"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Confirmar por WhatsApp
+                    </a>
+                </div>
+            </section>
+
+            <section class="playlist-section panel">
+                <div class="panel-content center">
+                    <h2 class="playlist-title">Galería de fotos y videos</h2>
+                    <p class="section-copy">Comparte tus mejores momentos de la celebración.</p>
+
+                    <a
+                        class="btn secondary-btn"
+                        href="https://driveuploader.com/upload/dYtjt7pw4h/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Agregar a la galería
+                    </a>
+                </div>
+            </section>
+
+            <div class="ending-glow" aria-hidden="true">
+                <span></span>
+            </div>
+        </main>
+
+        <script>
+            const targetDate = new Date("2026-12-05T18:00:00").getTime();
+            const countdownElements = {
+                days: document.getElementById("days"),
+                hours: document.getElementById("hours"),
+                minutes: document.getElementById("minutes"),
+                seconds: document.getElementById("seconds")
+            };
+
+            function formatTime(value, digits = 2){
+                return String(Math.max(0,value)).padStart(digits,"0");
+            }
+
+            function updateCountdown(){
+                const now = new Date().getTime();
+                const distance = Math.max(0,targetDate - now);
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((distance / (1000 * 60)) % 60);
+                const seconds = Math.floor((distance / 1000) % 60);
+
+                countdownElements.days.textContent = formatTime(days,3);
+                countdownElements.hours.textContent = formatTime(hours);
+                countdownElements.minutes.textContent = formatTime(minutes);
+                countdownElements.seconds.textContent = formatTime(seconds);
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown,1000);
+
+            const hero = document.querySelector(".hero");
+            const invitation = document.querySelector(".invitation");
+            const revealSections = document.querySelectorAll(".message-section,.countdown-section,.info-grid,.panel");
+            let lastSparkle = 0;
+
+            function updateHeroMotion(event){
+                const rect = hero.getBoundingClientRect();
+                const point = event.touches ? event.touches[0] : event;
+                const x = ((point.clientX - rect.left) / rect.width) - .5;
+                const y = ((point.clientY - rect.top) / rect.height) - .5;
+
+                hero.style.setProperty("--float-x", `${x * 18}px`);
+                hero.style.setProperty("--float-y", `${y * 18}px`);
+                hero.style.setProperty("--tilt-x", `${y * -2.5}deg`);
+                hero.style.setProperty("--tilt-y", `${x * 2.5}deg`);
+            }
+
+            function resetHeroMotion(){
+                hero.style.setProperty("--float-x","0px");
+                hero.style.setProperty("--float-y","0px");
+                hero.style.setProperty("--tilt-x","0deg");
+                hero.style.setProperty("--tilt-y","0deg");
+            }
+
+            hero.addEventListener("pointermove",updateHeroMotion);
+            hero.addEventListener("pointerleave",resetHeroMotion);
+            hero.addEventListener("touchmove",updateHeroMotion,{ passive:true });
+            hero.addEventListener("touchend",resetHeroMotion);
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting){
+                        entry.target.classList.add("is-visible");
+                        revealObserver.unobserve(entry.target);
                     }
+                });
+            },{ threshold:.18 });
 
-                    React.useEffect(() => {
-                        const timer = setInterval(() => {
-                            setTimeLeft(getTimeLeft());
-                        },1000);
-                        return () => clearInterval(timer);
-                    },[]);
+            revealSections.forEach((section) => {
+                section.classList.add("reveal-target");
+                revealObserver.observe(section);
+            });
 
-                    return(
-                        <div className="invitation">
-                            <div className="gold-border"> </div>
-                            <section className="hero">
-
-                                <img
-                                    className="flowers-top"
-                                    wsrc="https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?q=80&w=1200&auto=format&fit=crop"
-                                />
-
-                                <div className="crown"><img class= "crown" src="crown .png" alt="Crown" /></div>
-
-                                <div className="title-small">
-                                    
-                                </div>
-
-                                <div className="name">
-                                    Alika
-                                </div>
-
-                                <img
-                                    className="girl"
-                                    src="foto.png"
-                                />
-                            </section>
-                            
-                            <div className="message">
-                                Te invito a celebrar este día tan especial para mí ✨
-                            </div>
-
-                            <div className="count-title">
-                                FALTAN
-                            </div>
-
-                            <section className="countdown">
-                                <div className="count-box">
-                                    <div className="count-number">{timeLeft.days}</div>
-                                    <div className="count-label">DÍAS</div>
-                                </div>
-
-                                <div className="count-box">
-                                    <div className="count-number">{timeLeft.hours}</div>
-                                    <div className="count-label">HORAS</div>
-                                </div>
-
-                                <div className="count-box">
-                                    <div className="count-number">{timeLeft.minutes}</div>
-                                    <div className="count-label">MIN</div>
-                                </div>
-
-                                <div className="count-box">
-                                    <div className="count-number">{timeLeft.seconds}</div>
-                                    <div className="count-label">SEG</div>
-                                </div>
-                            </section>
-
-                            <section className="info-grid">
-                                <div className="card">
-                                    <div className="icon">📅</div>
-                                    <h3>Fecha</h3>
-                                    <p>05 Diciembre 2026</p>
-                                </div>
-
-                                <div className="card">
-                                    <div className="icon">⏰</div>
-                                    <h3>Hora</h3>
-                                    <p>06:00 PM</p>
-                                </div>
-
-                                <div className="card">
-                                    <div className="icon">⛪</div>
-                                    <h3>Ceremonia</h3>
-                                    <p>Dentro del mismo salon</p>
-                                </div>
-
-                                <div className="card">
-                                    <div className="icon">🎉</div>
-                                    <h3>Recepción</h3>
-                                    <p>Salón Mesteño</p>
-                                </div>
-                            </section>
-
-                            <section className="map-section">
-                                <div className="map-content">
-                                    <div className="section-title">
-                                        📍 Ubicación
-                                    </div>
-
-                                    <iframe 
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3760.038646754392!2d-99.1908527!3d19.539954299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d21d002bcafc2b%3A0x85a6e6b47df5610d!2zU2Fsw7NuIE1lc3Rlw7Fv!5e0!3m2!1ses-419!2smx!4v1779512885945!5m2!1ses-419!2smx"
-                                    ></iframe>
-                                </div>
-                            </section>
-
-                            <section className="dress-section">
-                                <div className="dress-content">
-                                    <div className="section-title">
-                                        👗 Codigo de vestimenta
-                                    </div>
-
-                                    <p style={{fontSize:'24px'}}>
-                                        Formal elegante
-                                    </p>
-
-                                    
-                                </div>
-                            </section>
-
-                            <section className="rsvp-section">
-
-                                <div className="rsvp-title">
-                                💌 Confirma tu asistencia
-                                </div>
-
-                                <a
-                                    className="btn"
-                                    href={`https://wa.me/5215541137580?text=${encodeURIComponent(
-                                        "Quiero confirmar mi asistencia al evento.\n\nNombre:\nCantidad de invitados:"
-                                    )}`}
-                                    target="_blank"
-                                >
-                                    Confirmar por WhatsApp
-                                </a>
-
-                            </section>
-
-                            <section className="playlist-section">
-                                <div className="playlist-title">
-                                    📷 Galeria de fotos/videos
-                                </div>
-
-                                <p style={{fontSize:'24px'}}>
-                                    ¡Agrega tus mejores momentos!
-                                </p>
-
-                                <a
-                                    className="btn music-btn"
-                                    href="https://driveuploader.com/upload/dYtjt7pw4h/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Agregar a la galeria
-                                </a>
-                            </section>
-                        </div>
-                    );
+            function createEdgeSparkle(){
+                const now = Date.now();
+                if(now - lastSparkle < 120){
+                    return;
                 }
-                ReactDOM.createRoot(document.getElementById("root")).render(<App />);
-            </script>    
-        </body>
-    </html>
+
+                lastSparkle = now;
+
+                const rect = invitation.getBoundingClientRect();
+                const side = Math.random() > .5 ? "right" : "left";
+                const sparkle = document.createElement("span");
+                const visibleY = window.scrollY + (window.innerHeight * (.22 + Math.random() * .58));
+                const localY = Math.max(26,Math.min(invitation.scrollHeight - 26,visibleY - invitation.offsetTop));
+
+                sparkle.className = "edge-sparkle";
+                sparkle.style.top = `${localY}px`;
+                sparkle.style.left = side === "left" ? "12px" : `${rect.width - 18}px`;
+                sparkle.style.setProperty("--spark-drift", side === "left" ? "28px" : "-28px");
+
+                invitation.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(),1100);
+            }
+
+            if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+                window.addEventListener("scroll",createEdgeSparkle,{ passive:true });
+            }
+        </script>
+    </body>
+</html>
