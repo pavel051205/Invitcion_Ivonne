@@ -183,7 +183,13 @@
             <div class="ending-glow" aria-hidden="true">
                 <span></span>
             </div>
+
+            <button class="music-toggle" id="musicToggle" type="button">
+                Pausar música
+            </button>
         </main>
+
+        <audio id="backgroundMusic" src="music.mp3" autoplay loop preload="auto" playsinline></audio>
 
         <script>
             const targetDate = new Date("2026-12-05T18:00:00").getTime();
@@ -215,6 +221,35 @@
 
             updateCountdown();
             setInterval(updateCountdown,1000);
+
+            const backgroundMusic = document.getElementById("backgroundMusic");
+            const musicToggle = document.getElementById("musicToggle");
+
+            function playBackgroundMusic(){
+                backgroundMusic.volume = .55;
+                return backgroundMusic.play()
+                    .then(() => {
+                        musicToggle.textContent = "Pausar música";
+                    })
+                    .catch(() => {
+                        musicToggle.textContent = "Activar música";
+                    });
+            }
+
+            playBackgroundMusic();
+            window.addEventListener("load",playBackgroundMusic,{ once:true });
+            document.addEventListener("pointerdown",playBackgroundMusic,{ once:true });
+            document.addEventListener("touchstart",playBackgroundMusic,{ once:true, passive:true });
+            document.addEventListener("scroll",playBackgroundMusic,{ once:true, passive:true });
+
+            musicToggle.addEventListener("click",() => {
+                if(backgroundMusic.paused){
+                    playBackgroundMusic();
+                }else{
+                    backgroundMusic.pause();
+                    musicToggle.textContent = "Reanudar música";
+                }
+            });
 
             const hero = document.querySelector(".hero");
             const invitation = document.querySelector(".invitation");
