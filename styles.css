@@ -1027,6 +1027,7 @@ iframe{
 
 .family-name{
     display:block;
+    position:relative;
     width:100%;
     max-width:420px;
     color:#a86f22;
@@ -1038,6 +1039,39 @@ iframe{
     text-shadow:
         0 1px 0 rgba(255,255,255,.95),
         0 7px 16px rgba(122,85,39,.14);
+    transition:color .28s ease, text-shadow .28s ease, transform .28s ease;
+}
+
+.family-name::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:52%;
+    width:108%;
+    height:78%;
+    transform:translate(-50%,-50%) scaleX(.72);
+    border-radius:50%;
+    background:radial-gradient(ellipse,rgba(244,214,141,.34),rgba(255,255,255,.24) 42%,transparent 72%);
+    opacity:0;
+    filter:blur(5px);
+    z-index:-1;
+    transition:opacity .3s ease, transform .3s ease;
+}
+
+.family-name:hover,
+.family-name:focus-visible{
+    color:#b97d26;
+    transform:translateY(-1px);
+    text-shadow:
+        0 1px 0 rgba(255,255,255,.98),
+        0 0 14px rgba(244,214,141,.65),
+        0 9px 18px rgba(122,85,39,.18);
+}
+
+.family-name:hover::before,
+.family-name:focus-visible::before{
+    opacity:1;
+    transform:translate(-50%,-50%) scaleX(1);
 }
 
 .family-line-wide .family-name{
