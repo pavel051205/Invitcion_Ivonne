@@ -68,6 +68,29 @@
                 </div>
             </section>
 
+            <section class="family-section">
+                <p class="family-kicker">Con el amor de</p>
+
+                <div class="family-list">
+                    <div class="family-line">
+                        <span class="family-role">Papá</span>
+                        <span class="family-name">Jaime Cortés Rodríguez</span>
+                    </div>
+
+                    <div class="family-line">
+                        <span class="family-role">Mamá</span>
+                        <span class="family-name">Ivonne Cañada Cano</span>
+                    </div>
+
+                    <div class="family-line family-line-wide">
+                        <span class="family-role">Madrinas</span>
+                        <span class="family-name">Natalia Marín Lugo</span>
+                        <span class="family-amp">&</span>
+                        <span class="family-name">Lady Michel Aguilar Cano</span>
+                    </div>
+                </div>
+            </section>
+
             <section class="message-section">
                 <p class="message">
                     Con mucha ilusión quiero invitarte a celebrar conmigo una noche única, llena de alegría, recuerdos y momentos especiales.
@@ -253,7 +276,7 @@
 
             const hero = document.querySelector(".hero");
             const invitation = document.querySelector(".invitation");
-            const revealSections = document.querySelectorAll(".message-section,.countdown-section,.info-grid,.panel");
+            const revealSections = document.querySelectorAll(".family-section,.message-section,.countdown-section,.info-grid,.panel");
             let lastSparkle = 0;
 
             function updateHeroMotion(event){
