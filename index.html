@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="welcome-locked">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,10 +9,70 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="styles.css?v=2">
+        <link rel="stylesheet" href="styles.css?v=7">
     </head>
 
-    <body>
+    <body class="welcome-locked">
+        <!-- Capa de Destello Celestial a Pantalla Completa -->
+        <div class="magic-flash-overlay" id="magicFlashOverlay" aria-hidden="true"></div>
+
+        <!-- Pantalla de Bienvenida: Sobre 3D Místico -->
+        <aside class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-label="Sobre de gala XV Años Alika">
+            <div class="envelope-scene">
+                <div class="envelope-wrapper" id="envelopeWrapper" role="button" tabindex="0" aria-label="Toca el sello o el sobre para abrir">
+                    <div class="envelope-glow" aria-hidden="true"></div>
+
+                    <!-- Encabezado sutil arriba del sobre -->
+                    <div class="envelope-header">
+                        <div class="envelope-header-crown">
+                            <img src="crown .png" alt="Corona de Alika">
+                        </div>
+                        <p class="envelope-header-tag">Mis XV Años</p>
+                        <h1 class="envelope-header-name">Alika</h1>
+                        <p class="envelope-header-date">05 . DICIEMBRE . 2026</p>
+                    </div>
+
+                    <div class="envelope" id="envelope">
+                        <!-- Fondo interno del sobre -->
+                        <div class="envelope-back" aria-hidden="true"></div>
+
+                        <!-- Núcleo de Luz Mágica dentro del sobre -->
+                        <div class="magic-light-core" id="magicLightCore" aria-hidden="true">
+                            <span class="magic-beam beam-1"></span>
+                            <span class="magic-beam beam-2"></span>
+                            <span class="magic-beam beam-3"></span>
+                            <span class="magic-sparkle s-1"></span>
+                            <span class="magic-sparkle s-2"></span>
+                            <span class="magic-sparkle s-3"></span>
+                            <span class="magic-sparkle s-4"></span>
+                        </div>
+
+                        <!-- Solapa superior 3D (Flap) -->
+                        <div class="envelope-flap" id="envelopeFlap" aria-hidden="true"></div>
+
+                        <!-- Bolsillo frontal con pliegues 3D (Pocket) -->
+                        <div class="envelope-pocket" aria-hidden="true">
+                            <div class="pocket-fold pocket-left"></div>
+                            <div class="pocket-fold pocket-right"></div>
+                            <div class="pocket-fold pocket-bottom"></div>
+                        </div>
+
+                        <!-- Sello de Lacre Dorado (Wax Seal) -->
+                        <button class="envelope-seal" id="waxSealBtn" type="button" aria-label="Abrir sobre de gala">
+                            <span class="seal-inner">
+                                <span class="seal-emblem">A</span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- Indicaciones debajo del sobre -->
+                    <div class="envelope-instructions">
+                        <p class="envelope-hint-main">✨ TOCA EL SELLO O EL SOBRE PARA ABRIR</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
         <main class="invitation">
             <div class="ambient-layer" aria-hidden="true">
                 <span class="mist mist-one"></span>
@@ -227,6 +287,10 @@
 
             const backgroundMusic = document.getElementById("backgroundMusic");
             const musicToggle = document.getElementById("musicToggle");
+            const welcomeOverlay = document.getElementById("welcomeOverlay");
+            const envelopeWrapper = document.getElementById("envelopeWrapper");
+            const waxSealBtn = document.getElementById("waxSealBtn");
+            const magicFlashOverlay = document.getElementById("magicFlashOverlay");
 
             function playBackgroundMusic(){
                 backgroundMusic.volume = .55;
@@ -237,6 +301,67 @@
                     .catch(() => {
                         musicToggle.textContent = "Activar música";
                     });
+            }
+
+            let isOpeningEnvelope = false;
+
+            function openEnvelope(){
+                if(isOpeningEnvelope) return;
+                isOpeningEnvelope = true;
+
+                // Paso 1: Iniciar música de inmediato en el evento de interacción directa
+                playBackgroundMusic();
+
+                // Fase 1 (0.0s a 0.6s) y Fase 2 (0.45s a 1.1s):
+                // Se abre la solapa y erupciona el núcleo de luz mágica desde dentro
+                if(welcomeOverlay){
+                    welcomeOverlay.classList.add("is-opening");
+                }
+
+                // Fase 3 (0.9s a 1.5s): El resplandor celestial cubre la pantalla completa
+                setTimeout(() => {
+                    if(magicFlashOverlay){
+                        magicFlashOverlay.classList.add("is-active");
+                    }
+                }, 900);
+
+                // Fase 4 (1.5s a 2.3s): Ocultamos el sobre y disipamos el resplandor revelando el castillo
+                setTimeout(() => {
+                    if(welcomeOverlay){
+                        welcomeOverlay.style.display = "none";
+                    }
+                    document.documentElement.classList.remove("welcome-locked");
+                    document.body.classList.remove("welcome-locked");
+
+                    if(magicFlashOverlay){
+                        magicFlashOverlay.classList.remove("is-active");
+                        magicFlashOverlay.classList.add("is-fading");
+                    }
+                }, 1500);
+
+                // Disipación final completa
+                setTimeout(() => {
+                    if(magicFlashOverlay){
+                        magicFlashOverlay.style.display = "none";
+                    }
+                }, 2350);
+            }
+
+            if(envelopeWrapper){
+                envelopeWrapper.addEventListener("click", openEnvelope);
+                envelopeWrapper.addEventListener("keydown", (e) => {
+                    if(e.key === "Enter" || e.key === " "){
+                        e.preventDefault();
+                        openEnvelope();
+                    }
+                });
+            }
+
+            if(waxSealBtn){
+                waxSealBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    openEnvelope();
+                });
             }
 
             playBackgroundMusic();
